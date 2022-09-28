@@ -1,6 +1,8 @@
 ﻿Imports DATA.CLS
 Imports MySql.Data.MySqlClient
 
+'prueba a laptop
+
 Public Class Grado
     Inherits Connection
     Private Comando As MySqlCommand = New MySqlCommand()
