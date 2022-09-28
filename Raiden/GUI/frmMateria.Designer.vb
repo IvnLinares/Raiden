@@ -99,7 +99,7 @@ Partial Class frmMateria
         'btnSalir
         '
         Me.btnSalir.Image = Global.Raiden.My.Resources.Resources.exit32x
-        Me.btnSalir.Location = New System.Drawing.Point(375, 344)
+        Me.btnSalir.Location = New System.Drawing.Point(563, 342)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(75, 45)
         Me.btnSalir.TabIndex = 7
