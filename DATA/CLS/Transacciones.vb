@@ -26,7 +26,7 @@ Namespace CLS
                 End Using
                 Resultado = True
             Catch e As MySqlException
-                MessageBox.Show("¡Ocurrió un error en la consulta SQL de la clase TRANSACCIÓN! : " & e.Message)
+                MessageBox.Show("¡Error en la consulta SQL de la clase TRANSACCIÓN! : " & e.Message)
                 Resultado = False
                 'transaccion_.Rollback()
             Finally

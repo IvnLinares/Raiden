@@ -135,6 +135,10 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CLS\Estudiante.vb" />
+    <Compile Include="CLS\Clase.vb" />
+    <Compile Include="CLS\Familia.vb" />
+    <Compile Include="CLS\General.vb" />
     <Compile Include="GUI-OLD\Chat.Designer.vb">
       <DependentUpon>Chat.vb</DependentUpon>
     </Compile>

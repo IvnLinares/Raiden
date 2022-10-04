@@ -22,7 +22,6 @@ Partial Class MenuPrincipal
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Me.MenuStripPrincipal = New System.Windows.Forms.MenuStrip()
         Me.FormsPrincipalesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ClaseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -45,7 +44,6 @@ Partial Class MenuPrincipal
         Me.CerrarSesionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AyudaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AcercaDeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.MenuStripPrincipal.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -192,11 +190,6 @@ Partial Class MenuPrincipal
         Me.AcercaDeToolStripMenuItem.Size = New System.Drawing.Size(156, 26)
         Me.AcercaDeToolStripMenuItem.Text = "Acerca de..."
         '
-        'ContextMenuStrip1
-        '
-        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(61, 4)
-        '
         'MenuPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -206,6 +199,7 @@ Partial Class MenuPrincipal
         Me.Controls.Add(Me.MenuStripPrincipal)
         Me.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.IsMdiContainer = True
         Me.MainMenuStrip = Me.MenuStripPrincipal
         Me.Name = "MenuPrincipal"
         Me.Text = "MenuPrincipal"
@@ -237,7 +231,6 @@ Partial Class MenuPrincipal
     Friend WithEvents CerrarSesionToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AyudaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AcercaDeToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
     Friend WithEvents MateriaToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents EstadoToolStripMenuItem1 As ToolStripMenuItem
 End Class
