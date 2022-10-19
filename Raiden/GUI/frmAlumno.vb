@@ -1,19 +1,11 @@
 ﻿Imports DATA.CLS
 
 Public Class frmAlumno
-    Private Sub TextBox3_TextChanged(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub PageAlumno_Click(sender As Object, e As EventArgs) Handles PageAlumno.Click
-
-    End Sub
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         If (DATA.CLS.Funciones.CompareImages(btnAdd.Image, My.Resources.add32x)) Then
             'Comportar como boton nuevo
             btnAdd.Image = My.Resources.save32x
-
             DATA.CLS.Funciones.enabledTextBox(PageAlumno, True)
             DATA.CLS.Funciones.enabledComboBox(PageAlumno, True)
         Else
@@ -21,21 +13,27 @@ Public Class frmAlumno
 
             'validar que no existan datos vacios
             Dim tblEstudiante As Estudiante = New Estudiante
+
             tblEstudiante.NIE = txtNIE.Text
-            tblEstudiante.nombre = txtNombre.Text
-            tblEstudiante.apellido = txtApellido.Text
+            tblEstudiante.nombres = txtNombre.Text
+            tblEstudiante.apellidos = txtApellido.Text
             tblEstudiante.idClase = cboClase.SelectedValue.ToString
-            tblEstudiante.idEstado = 1
+            tblEstudiante.idEstado = 3
             tblEstudiante.idMunicipio = cboMunicipio.SelectedValue.ToString
             tblEstudiante.direccion = txtDireccion.Text
             tblEstudiante.correo = txtEmail.Text
             tblEstudiante.telefono = txtTelFijo.Text
             tblEstudiante.celular = txtCelular.Text
-            tblEstudiante.fecha_nacimiento = dtpNacimiento.Value.ToShortDateString
+            tblEstudiante.fecha_nacimiento = Format(dtpNacimiento.Value, "yyy/MM/dd")
             tblEstudiante.genero = cboSexo.Text
-            tblEstudiante.fecha_ingreso = Date.Today.ToShortDateString
+            tblEstudiante.fecha_ingreso = Format(Date.Today, "yyyy/MM/dd")
+            tblEstudiante.foto = ""
+            tblEstudiante.DUI = txtDUI.Text
+            tblEstudiante.carnet = txtCarnet.Text
+
             If tblEstudiante.Insert() > 0 Then
 
+                MessageBox.Show("Registro Agregado", ProductVersion, MessageBoxButtons.OK)
                 btnAdd.Image = My.Resources.add32x
                 DATA.CLS.Funciones.enabledTextBox(PageAlumno, False)
                 DATA.CLS.Funciones.enabledComboBox(PageAlumno, False)
@@ -85,4 +83,9 @@ Public Class frmAlumno
         filtrarMunicipio()
 
     End Sub
+
+    Private Sub btnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
+        Funciones.clearTextBox(PageAlumno)
+    End Sub
+
 End Class

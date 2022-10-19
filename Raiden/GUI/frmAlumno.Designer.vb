@@ -24,6 +24,10 @@ Partial Class frmAlumno
     Private Sub InitializeComponent()
         Me.TabAlumnos = New System.Windows.Forms.TabControl()
         Me.PageAlumno = New System.Windows.Forms.TabPage()
+        Me.txtCarnet = New System.Windows.Forms.TextBox()
+        Me.txtDUI = New System.Windows.Forms.TextBox()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
         Me.btnNext = New System.Windows.Forms.Button()
         Me.cboClase = New System.Windows.Forms.ComboBox()
         Me.Label13 = New System.Windows.Forms.Label()
@@ -60,10 +64,21 @@ Partial Class frmAlumno
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PageGenerales = New System.Windows.Forms.TabPage()
         Me.PageFamiliares = New System.Windows.Forms.TabPage()
-        Me.MySqlCommand1 = New MySql.Data.MySqlClient.MySqlCommand()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.cboMedioTransporte = New System.Windows.Forms.ComboBox()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.chkPartida = New System.Windows.Forms.CheckBox()
+        Me.chkNotas = New System.Windows.Forms.CheckBox()
+        Me.chkDUI = New System.Windows.Forms.CheckBox()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.txtEnfermedad = New System.Windows.Forms.TextBox()
+        Me.txtTratamiento = New System.Windows.Forms.TextBox()
+        Me.Label18 = New System.Windows.Forms.Label()
         Me.TabAlumnos.SuspendLayout()
         Me.PageAlumno.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PageGenerales.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'TabAlumnos
@@ -82,6 +97,10 @@ Partial Class frmAlumno
         '
         'PageAlumno
         '
+        Me.PageAlumno.Controls.Add(Me.txtCarnet)
+        Me.PageAlumno.Controls.Add(Me.txtDUI)
+        Me.PageAlumno.Controls.Add(Me.Label14)
+        Me.PageAlumno.Controls.Add(Me.Label15)
         Me.PageAlumno.Controls.Add(Me.btnNext)
         Me.PageAlumno.Controls.Add(Me.cboClase)
         Me.PageAlumno.Controls.Add(Me.Label13)
@@ -125,12 +144,46 @@ Partial Class frmAlumno
         Me.PageAlumno.Text = "Datos del Alumno"
         Me.PageAlumno.UseVisualStyleBackColor = True
         '
+        'txtCarnet
+        '
+        Me.txtCarnet.Enabled = False
+        Me.txtCarnet.Location = New System.Drawing.Point(254, 244)
+        Me.txtCarnet.Name = "txtCarnet"
+        Me.txtCarnet.Size = New System.Drawing.Size(238, 20)
+        Me.txtCarnet.TabIndex = 13
+        '
+        'txtDUI
+        '
+        Me.txtDUI.Enabled = False
+        Me.txtDUI.Location = New System.Drawing.Point(10, 244)
+        Me.txtDUI.Name = "txtDUI"
+        Me.txtDUI.Size = New System.Drawing.Size(238, 20)
+        Me.txtDUI.TabIndex = 12
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(254, 228)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(38, 13)
+        Me.Label14.TabIndex = 48
+        Me.Label14.Text = "Carnet"
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(7, 228)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(26, 13)
+        Me.Label15.TabIndex = 47
+        Me.Label15.Text = "DUI"
+        '
         'btnNext
         '
         Me.btnNext.Location = New System.Drawing.Point(521, 328)
         Me.btnNext.Name = "btnNext"
         Me.btnNext.Size = New System.Drawing.Size(241, 54)
-        Me.btnNext.TabIndex = 46
+        Me.btnNext.TabIndex = 20
         Me.btnNext.Text = "->"
         Me.btnNext.UseVisualStyleBackColor = True
         '
@@ -141,7 +194,7 @@ Partial Class frmAlumno
         Me.cboClase.Location = New System.Drawing.Point(628, 204)
         Me.cboClase.Name = "cboClase"
         Me.cboClase.Size = New System.Drawing.Size(134, 21)
-        Me.cboClase.TabIndex = 45
+        Me.cboClase.TabIndex = 11
         '
         'Label13
         '
@@ -158,7 +211,7 @@ Partial Class frmAlumno
         Me.btnLimpiar.Location = New System.Drawing.Point(346, 327)
         Me.btnLimpiar.Name = "btnLimpiar"
         Me.btnLimpiar.Size = New System.Drawing.Size(78, 55)
-        Me.btnLimpiar.TabIndex = 43
+        Me.btnLimpiar.TabIndex = 18
         Me.btnLimpiar.UseVisualStyleBackColor = True
         '
         'btnSalir
@@ -167,7 +220,7 @@ Partial Class frmAlumno
         Me.btnSalir.Location = New System.Drawing.Point(430, 327)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(78, 53)
-        Me.btnSalir.TabIndex = 30
+        Me.btnSalir.TabIndex = 19
         Me.btnSalir.UseVisualStyleBackColor = True
         '
         'btnImprimir
@@ -176,7 +229,7 @@ Partial Class frmAlumno
         Me.btnImprimir.Location = New System.Drawing.Point(262, 326)
         Me.btnImprimir.Name = "btnImprimir"
         Me.btnImprimir.Size = New System.Drawing.Size(78, 56)
-        Me.btnImprimir.TabIndex = 29
+        Me.btnImprimir.TabIndex = 17
         Me.btnImprimir.UseVisualStyleBackColor = True
         '
         'btnAdd
@@ -185,7 +238,7 @@ Partial Class frmAlumno
         Me.btnAdd.Location = New System.Drawing.Point(10, 326)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(78, 56)
-        Me.btnAdd.TabIndex = 28
+        Me.btnAdd.TabIndex = 14
         Me.btnAdd.UseVisualStyleBackColor = True
         '
         'btnEditar
@@ -194,7 +247,7 @@ Partial Class frmAlumno
         Me.btnEditar.Location = New System.Drawing.Point(94, 326)
         Me.btnEditar.Name = "btnEditar"
         Me.btnEditar.Size = New System.Drawing.Size(78, 56)
-        Me.btnEditar.TabIndex = 27
+        Me.btnEditar.TabIndex = 15
         Me.btnEditar.UseVisualStyleBackColor = True
         '
         'btnEliminar
@@ -203,7 +256,7 @@ Partial Class frmAlumno
         Me.btnEliminar.Location = New System.Drawing.Point(178, 327)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(78, 54)
-        Me.btnEliminar.TabIndex = 26
+        Me.btnEliminar.TabIndex = 16
         Me.btnEliminar.UseVisualStyleBackColor = True
         '
         'txtTelFijo
@@ -212,7 +265,7 @@ Partial Class frmAlumno
         Me.txtTelFijo.Location = New System.Drawing.Point(372, 157)
         Me.txtTelFijo.Name = "txtTelFijo"
         Me.txtTelFijo.Size = New System.Drawing.Size(238, 20)
-        Me.txtTelFijo.TabIndex = 25
+        Me.txtTelFijo.TabIndex = 6
         '
         'Label12
         '
@@ -230,7 +283,7 @@ Partial Class frmAlumno
         Me.cboMunicipio.Location = New System.Drawing.Point(200, 205)
         Me.cboMunicipio.Name = "cboMunicipio"
         Me.cboMunicipio.Size = New System.Drawing.Size(173, 21)
-        Me.cboMunicipio.TabIndex = 23
+        Me.cboMunicipio.TabIndex = 8
         '
         'cboDepto
         '
@@ -239,7 +292,7 @@ Partial Class frmAlumno
         Me.cboDepto.Location = New System.Drawing.Point(10, 204)
         Me.cboDepto.Name = "cboDepto"
         Me.cboDepto.Size = New System.Drawing.Size(184, 21)
-        Me.cboDepto.TabIndex = 22
+        Me.cboDepto.TabIndex = 7
         '
         'Label11
         '
@@ -300,7 +353,7 @@ Partial Class frmAlumno
         Me.dtpNacimiento.Location = New System.Drawing.Point(510, 205)
         Me.dtpNacimiento.Name = "dtpNacimiento"
         Me.dtpNacimiento.Size = New System.Drawing.Size(112, 20)
-        Me.dtpNacimiento.TabIndex = 15
+        Me.dtpNacimiento.TabIndex = 10
         '
         'cboSexo
         '
@@ -310,7 +363,7 @@ Partial Class frmAlumno
         Me.cboSexo.Location = New System.Drawing.Point(379, 204)
         Me.cboSexo.Name = "cboSexo"
         Me.cboSexo.Size = New System.Drawing.Size(125, 21)
-        Me.cboSexo.TabIndex = 14
+        Me.cboSexo.TabIndex = 9
         '
         'Label7
         '
@@ -327,7 +380,7 @@ Partial Class frmAlumno
         Me.txtEmail.Location = New System.Drawing.Point(372, 75)
         Me.txtEmail.Name = "txtEmail"
         Me.txtEmail.Size = New System.Drawing.Size(238, 20)
-        Me.txtEmail.TabIndex = 12
+        Me.txtEmail.TabIndex = 4
         '
         'Label6
         '
@@ -345,7 +398,7 @@ Partial Class frmAlumno
         Me.txtDireccion.Multiline = True
         Me.txtDireccion.Name = "txtDireccion"
         Me.txtDireccion.Size = New System.Drawing.Size(360, 102)
-        Me.txtDireccion.TabIndex = 10
+        Me.txtDireccion.TabIndex = 3
         '
         'Label5
         '
@@ -362,7 +415,7 @@ Partial Class frmAlumno
         Me.txtApellido.Location = New System.Drawing.Point(372, 23)
         Me.txtApellido.Name = "txtApellido"
         Me.txtApellido.Size = New System.Drawing.Size(238, 20)
-        Me.txtApellido.TabIndex = 8
+        Me.txtApellido.TabIndex = 2
         '
         'txtCelular
         '
@@ -370,7 +423,7 @@ Partial Class frmAlumno
         Me.txtCelular.Location = New System.Drawing.Point(372, 114)
         Me.txtCelular.Name = "txtCelular"
         Me.txtCelular.Size = New System.Drawing.Size(238, 20)
-        Me.txtCelular.TabIndex = 7
+        Me.txtCelular.TabIndex = 5
         '
         'txtNombre
         '
@@ -378,7 +431,7 @@ Partial Class frmAlumno
         Me.txtNombre.Location = New System.Drawing.Point(128, 23)
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.Size = New System.Drawing.Size(238, 20)
-        Me.txtNombre.TabIndex = 5
+        Me.txtNombre.TabIndex = 1
         '
         'txtNIE
         '
@@ -386,7 +439,7 @@ Partial Class frmAlumno
         Me.txtNIE.Location = New System.Drawing.Point(10, 24)
         Me.txtNIE.Name = "txtNIE"
         Me.txtNIE.Size = New System.Drawing.Size(112, 20)
-        Me.txtNIE.TabIndex = 4
+        Me.txtNIE.TabIndex = 0
         '
         'Label4
         '
@@ -426,6 +479,14 @@ Partial Class frmAlumno
         '
         'PageGenerales
         '
+        Me.PageGenerales.Controls.Add(Me.txtTratamiento)
+        Me.PageGenerales.Controls.Add(Me.Label18)
+        Me.PageGenerales.Controls.Add(Me.txtEnfermedad)
+        Me.PageGenerales.Controls.Add(Me.Label17)
+        Me.PageGenerales.Controls.Add(Me.GroupBox1)
+        Me.PageGenerales.Controls.Add(Me.cboMedioTransporte)
+        Me.PageGenerales.Controls.Add(Me.Label16)
+        Me.PageGenerales.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
         Me.PageGenerales.Location = New System.Drawing.Point(4, 34)
         Me.PageGenerales.Name = "PageGenerales"
         Me.PageGenerales.Padding = New System.Windows.Forms.Padding(3)
@@ -443,12 +504,97 @@ Partial Class frmAlumno
         Me.PageFamiliares.Text = "Datos de la Familia"
         Me.PageFamiliares.UseVisualStyleBackColor = True
         '
-        'MySqlCommand1
+        'Label16
         '
-        Me.MySqlCommand1.CacheAge = 0
-        Me.MySqlCommand1.Connection = Nothing
-        Me.MySqlCommand1.EnableCaching = False
-        Me.MySqlCommand1.Transaction = Nothing
+        Me.Label16.AutoSize = True
+        Me.Label16.Location = New System.Drawing.Point(19, 27)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(105, 13)
+        Me.Label16.TabIndex = 0
+        Me.Label16.Text = "Medio de Transporte"
+        '
+        'cboMedioTransporte
+        '
+        Me.cboMedioTransporte.FormattingEnabled = True
+        Me.cboMedioTransporte.Location = New System.Drawing.Point(22, 44)
+        Me.cboMedioTransporte.Name = "cboMedioTransporte"
+        Me.cboMedioTransporte.Size = New System.Drawing.Size(209, 21)
+        Me.cboMedioTransporte.TabIndex = 1
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.chkDUI)
+        Me.GroupBox1.Controls.Add(Me.chkNotas)
+        Me.GroupBox1.Controls.Add(Me.chkPartida)
+        Me.GroupBox1.Location = New System.Drawing.Point(22, 87)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(388, 70)
+        Me.GroupBox1.TabIndex = 2
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Documentos Presentados"
+        '
+        'chkPartida
+        '
+        Me.chkPartida.AutoSize = True
+        Me.chkPartida.Location = New System.Drawing.Point(16, 32)
+        Me.chkPartida.Name = "chkPartida"
+        Me.chkPartida.Size = New System.Drawing.Size(130, 17)
+        Me.chkPartida.TabIndex = 0
+        Me.chkPartida.Text = "Partida de Nacimiento"
+        Me.chkPartida.UseVisualStyleBackColor = True
+        '
+        'chkNotas
+        '
+        Me.chkNotas.AutoSize = True
+        Me.chkNotas.Location = New System.Drawing.Point(152, 32)
+        Me.chkNotas.Name = "chkNotas"
+        Me.chkNotas.Size = New System.Drawing.Size(102, 17)
+        Me.chkNotas.TabIndex = 1
+        Me.chkNotas.Text = "Boleta de Notas"
+        Me.chkNotas.UseVisualStyleBackColor = True
+        '
+        'chkDUI
+        '
+        Me.chkDUI.AutoSize = True
+        Me.chkDUI.Location = New System.Drawing.Point(260, 32)
+        Me.chkDUI.Name = "chkDUI"
+        Me.chkDUI.Size = New System.Drawing.Size(45, 17)
+        Me.chkDUI.TabIndex = 2
+        Me.chkDUI.Text = "DUI"
+        Me.chkDUI.UseVisualStyleBackColor = True
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(22, 217)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(257, 13)
+        Me.Label17.TabIndex = 3
+        Me.Label17.Text = "Si padece de alguna enfermedad, por favor explique:"
+        '
+        'txtEnfermedad
+        '
+        Me.txtEnfermedad.Location = New System.Drawing.Point(25, 233)
+        Me.txtEnfermedad.Name = "txtEnfermedad"
+        Me.txtEnfermedad.Size = New System.Drawing.Size(715, 20)
+        Me.txtEnfermedad.TabIndex = 4
+        '
+        'txtTratamiento
+        '
+        Me.txtTratamiento.Location = New System.Drawing.Point(25, 284)
+        Me.txtTratamiento.Multiline = True
+        Me.txtTratamiento.Name = "txtTratamiento"
+        Me.txtTratamiento.Size = New System.Drawing.Size(715, 74)
+        Me.txtTratamiento.TabIndex = 6
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Location = New System.Drawing.Point(22, 268)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(272, 13)
+        Me.Label18.TabIndex = 5
+        Me.Label18.Text = "Si padece de alguna enfermedad: Detalle el tratameinto."
         '
         'frmAlumno
         '
@@ -463,6 +609,10 @@ Partial Class frmAlumno
         Me.PageAlumno.ResumeLayout(False)
         Me.PageAlumno.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PageGenerales.ResumeLayout(False)
+        Me.PageGenerales.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -496,7 +646,6 @@ Partial Class frmAlumno
     Friend WithEvents cboDepto As ComboBox
     Friend WithEvents Label11 As Label
     Friend WithEvents Label10 As Label
-    Friend WithEvents MySqlCommand1 As MySql.Data.MySqlClient.MySqlCommand
     Friend WithEvents btnSalir As Button
     Friend WithEvents btnImprimir As Button
     Friend WithEvents btnAdd As Button
@@ -506,4 +655,18 @@ Partial Class frmAlumno
     Friend WithEvents Label13 As Label
     Friend WithEvents btnLimpiar As Button
     Friend WithEvents btnNext As Button
+    Friend WithEvents txtCarnet As TextBox
+    Friend WithEvents txtDUI As TextBox
+    Friend WithEvents Label14 As Label
+    Friend WithEvents Label15 As Label
+    Friend WithEvents cboMedioTransporte As ComboBox
+    Friend WithEvents Label16 As Label
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents chkDUI As CheckBox
+    Friend WithEvents chkNotas As CheckBox
+    Friend WithEvents chkPartida As CheckBox
+    Friend WithEvents txtEnfermedad As TextBox
+    Friend WithEvents Label17 As Label
+    Friend WithEvents txtTratamiento As TextBox
+    Friend WithEvents Label18 As Label
 End Class

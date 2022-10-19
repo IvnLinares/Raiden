@@ -8,24 +8,25 @@ Public Class General
 
     Public NIE As String
 
-    Public distanciaCentro As Decimal
     Public medioTransporte As String
     Public partida As String
     Public certificacionNotas As String
+    Public dui As Int16
     Public enfermedad As String
     Public tratamiento As String
+
     Public Function Insert() As Integer 'CREATE OF CRUD
         Dim query As String = ""
         Dim NumFilasAfectadas As Int32 = 0
         MyBase.Conectar()
         Try
             Using MyBase.Conexion
-                query = "INSERT INTO general(NIE,distanciaCentro,medioTransporte,partida,certificacionNotas,enfermedad,tratamiento)
-                values(?NIE_,?distanciaCentro_,?medioTransporte_,?partida_,?certificacionNotas_,?enfermedad_,?tratamiento_)"
+                query = "INSERT INTO general(NIE,dui,medioTransporte,partida,certificacionNotas,enfermedad,tratamiento)
+                values(?NIE_,?dui_,?medioTransporte_,?partida_,?certificacionNotas_,?enfermedad_,?tratamiento_)"
                 Comando.CommandText = query
                 Comando.Connection = MyBase.Conexion
                 Comando.Parameters.AddWithValue("?NIE_", NIE)
-                Comando.Parameters.AddWithValue("?distanciaCentro_", distanciaCentro)
+                Comando.Parameters.AddWithValue("?dui_", dui)
                 Comando.Parameters.AddWithValue("?medioTransporte_", medioTransporte)
                 Comando.Parameters.AddWithValue("?partida_", partida)
                 Comando.Parameters.AddWithValue("?certificacionNotas_", certificacionNotas)
@@ -42,6 +43,7 @@ Public Class General
         End Try
         Return NumFilasAfectadas
     End Function
+
     Public Function GetRecord(NIE_ As String) As DataTable  'READ OF CRUD
         Dim Resultado As DataTable = New DataTable()
         MyBase.Conectar()
@@ -87,19 +89,20 @@ Public Class General
         End Try
         Return Resultado
     End Function
+
     Public Function Update() As Integer 'UPDATE OF CRUD
         Dim query As String = ""
         Dim NumFilasAfectadas As Int32 = 0
         MyBase.Conectar()
         Try
             Using MyBase.Conexion
-                query = "UPDATE general SET distanciaCentro=?distanciaCentro_,medioTransporte=?medioTransporte_,
+                query = "UPDATE general SET dui=?dui_,medioTransporte=?medioTransporte_,
                 partida=?partida_,certificacionNotas=?certificacionNotas_,enfermedad=?enfermedad_,tratamiento=?tratamiento_ 
                 WHERE NIE =" & NIE
                 Comando.CommandText = query
                 Comando.Connection = MyBase.Conexion
                 Comando.Parameters.AddWithValue("?NIE_", NIE)
-                Comando.Parameters.AddWithValue("?distanciaCentro_", distanciaCentro)
+                Comando.Parameters.AddWithValue("?dui", dui)
                 Comando.Parameters.AddWithValue("?medioTransporte_", medioTransporte)
                 Comando.Parameters.AddWithValue("?partida_", partida)
                 Comando.Parameters.AddWithValue("?certificacionNotas_", certificacionNotas)
@@ -116,6 +119,7 @@ Public Class General
         End Try
         Return NumFilasAfectadas
     End Function
+
     Public Function Delete() As Integer 'DELETE OF CRUD
         If MessageBox.Show("Desea eliminar el registro seleccionado (" & NIE & ") de la tabla  general ?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) = System.Windows.Forms.DialogResult.Yes Then
             MyBase.Conectar()

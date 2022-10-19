@@ -118,7 +118,7 @@ Partial Class MenuPrincipal
         '
         Me.BusquedasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MateriaToolStripMenuItem})
         Me.BusquedasToolStripMenuItem.Name = "BusquedasToolStripMenuItem"
-        Me.BusquedasToolStripMenuItem.Size = New System.Drawing.Size(180, 26)
+        Me.BusquedasToolStripMenuItem.Size = New System.Drawing.Size(155, 26)
         Me.BusquedasToolStripMenuItem.Text = "Busquedas"
         '
         'MateriaToolStripMenuItem
@@ -130,7 +130,7 @@ Partial Class MenuPrincipal
         'AlumnosToolStripMenuItem
         '
         Me.AlumnosToolStripMenuItem.Name = "AlumnosToolStripMenuItem"
-        Me.AlumnosToolStripMenuItem.Size = New System.Drawing.Size(180, 26)
+        Me.AlumnosToolStripMenuItem.Size = New System.Drawing.Size(155, 26)
         Me.AlumnosToolStripMenuItem.Text = "Alumnos"
         '
         'InformesToolStripMenuItem
@@ -187,7 +187,7 @@ Partial Class MenuPrincipal
         'AcercaDeToolStripMenuItem
         '
         Me.AcercaDeToolStripMenuItem.Name = "AcercaDeToolStripMenuItem"
-        Me.AcercaDeToolStripMenuItem.Size = New System.Drawing.Size(156, 26)
+        Me.AcercaDeToolStripMenuItem.Size = New System.Drawing.Size(180, 26)
         Me.AcercaDeToolStripMenuItem.Text = "Acerca de..."
         '
         'MenuPrincipal
