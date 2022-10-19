@@ -60,7 +60,6 @@ Public Class Estudiante
                 'Crear una instancia de la clase general
                 Dim gral As General = New General()
 
-                gral.medioTransporte = cbo
 
                 MyBase.Desconectar()
             End Using
