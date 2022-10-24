@@ -31,8 +31,9 @@ Public Class Estudiante
         MyBase.Conectar()
         transaccion_ = MyBase.Conexion.BeginTransaction(System.Data.IsolationLevel.ReadCommitted)
 
-        Try
-            Using MyBase.Conexion
+
+        Using MyBase.Conexion
+            Try
                 query = "INSERT INTO estudiante(NIE, idEstado,idMunicipio,idClase, DUI, carnet,nombres, apellidos, telefono, celular, direccion, correo, foto, genero, fecha_nacimiento, fecha_ingreso)values( ?NIE_, ?idEstado_,?idMunicipio_,?idClase_,?DUI_ ,?carnet_,?nombres_, ?apellidos_, ?telefono_, ?celular_, ?direccion_, ?correo_, ?foto_, ?genero_, ?fecha_nacimiento_, ?fecha_ingreso_ )"
                 Comando.CommandText = query
                 Comando.Connection = MyBase.Conexion
@@ -62,13 +63,14 @@ Public Class Estudiante
 
 
                 MyBase.Desconectar()
-            End Using
-        Catch e As MySqlException
-            MessageBox.Show("¡Error en la SQL! : " & e.Message & "Query:" & query)
-            NumFilasAfectadas = 0
-        Finally
-            MyBase.Desconectar()
-        End Try
+            Catch e As MySqlException
+                MessageBox.Show("¡Error en la SQL! : " & e.Message & "Query:" & query)
+                NumFilasAfectadas = 0
+            Finally
+                MyBase.Desconectar()
+            End Try
+
+        End Using
         Return NumFilasAfectadas
     End Function
     Public Function GetRecord(NIE_ As String) As DataTable 'READ OF CRUD
